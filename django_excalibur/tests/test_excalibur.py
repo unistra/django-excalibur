@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.test import TestCase
-from .decorators import is_excalibur
-from .middleware import ExcaliburMiddleware
-from .exceptions import excalibur_exception_handler
+from django_excalibur.decorators import is_excalibur
+from django_excalibur.middleware import ExcaliburMiddleware
+from django_excalibur.exceptions import excalibur_exception_handler
 from django.http import HttpRequest
 from django.http import HttpResponse
 from django.http import QueryDict
@@ -10,10 +10,10 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
-from .models import Configuration
+from django_excalibur.models import Configuration
 from django.core.exceptions import ValidationError
-from .utils import ExcaliburAttack
-from .models import ExcaliburConf
+from django_excalibur.utils import ExcaliburAttack
+from django_excalibur.models import ExcaliburConf
 from excalibur.core import PluginsRunner
 from mock import patch, Mock
 import json
