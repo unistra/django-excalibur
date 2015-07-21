@@ -266,10 +266,10 @@ def build_route_updates_data(users_list, project, establishment, member_label, m
 
     res_list = []
 
-    try:
 
-        for result in users_list:
+    for result in users_list:
 
+        try:
             url_reverse = reverse("%s" % reverse_name,
                                   kwargs={'memberskey': member_label,
                                           'memberscode': result[member_code_key]},
@@ -283,13 +283,9 @@ def build_route_updates_data(users_list, project, establishment, member_label, m
                              'establishment': establishment,
                              'source': member_label, 'code': result[member_code_key],
                              'url': url})
-    except SporeMethodStatusError:
-        raise
-    except SporeMethodCallError:
-        raise
-    except KeyError as e:
-        logger.critical(str(e))
-    except NoReverseMatch as e:
-        logger.critical(str(e))
+        except KeyError as e:
+            logger.critical(str(e))
+        except NoReverseMatch as e:
+            logger.critical(str(e))
 
     return res_list
