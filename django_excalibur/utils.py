@@ -248,8 +248,8 @@ def generate_client_and_get_data(spore, token, method_name, method_args):
                                           middlewares=middlewares)
 
         func = getattr(client, method_name)
-        user = func(**method_args)
-        data = json.loads(user.text)
+        res = func(**method_args)
+        data = res.json()
 
     except SporeMethodStatusError:
         raise

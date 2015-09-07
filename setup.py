@@ -18,7 +18,7 @@ with open('requirements.txt') as requirements:
 
 setup(
     name='django-excalibur',
-    version='0.0.1',
+    version='0.0.3',
     packages=find_packages(),
     install_requires=libraries,
     dependency_links=dependency_links,
